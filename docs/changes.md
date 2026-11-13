@@ -1,0 +1,3 @@
+2026-11-09 09:08 - Project Created. Added the Rust starter app and clarified its requirements and build checks.
+2026-11-09 09:17 - Renamed the application to Blanker and replaced the starter CLI with a low-resource fullscreen black screen that wakes only on keyboard or mouse-button presses.
+2026-11-09 09:23 - Added a low-level mouse hook to consume the full mouse click, including release, before closing the blank screen; this prevents clicks leaking to the previously active application.
