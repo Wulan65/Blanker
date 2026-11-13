@@ -1,11 +1,8 @@
 # Blanker
 
-A lightweight Windows screen blanker. It covers the virtual desktop with a
-black screen until a key is pressed or a mouse button is clicked. Mouse movement
-alone does not wake it, and the wake input is consumed rather than passed to the
-application that was open beforehand. After a mouse click, the screen stays
-black until the button is released so neither half of the click reaches that
-application.
+A lightweight Windows screen blanker. It blanks screen until a key is pressed or a mouse button is clicked.
+Mouse movement alone does not wake it, and the wake input is consumed rather than passed to the application that was open beforehand.
+After a mouse click, the screen stays black until the button is released so neither half of the click reaches that application.
 
 ## Installation
 
