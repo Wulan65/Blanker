@@ -7,6 +7,12 @@ application that was open beforehand. After a mouse click, the screen stays
 black until the button is released so neither half of the click reaches that
 application.
 
+## Installation
+
+Copy .scr file to /windows/system32/
+Select screensaver in settings
+If you want to try it without these steps, just rename file to .exe and run it as is
+
 ## Requirements
 
 Install the stable Rust toolchain with Cargo on Windows.
