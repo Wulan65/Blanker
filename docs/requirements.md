@@ -8,6 +8,8 @@ screen until deliberate keyboard or mouse-button input wakes it.
 ## Current Scope
 
 - Provide a Windows executable written in Rust and named `blanker`.
+- Launch without showing a console window; display startup failures in a
+  Windows error dialog.
 - Cover the virtual desktop, including all monitors, with a fullscreen black
   window.
 - Wake on keyboard key-down or mouse-button-down input. Mouse movement alone

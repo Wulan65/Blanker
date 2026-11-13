@@ -1,3 +1,5 @@
+#![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
+
 #[cfg(windows)]
 mod screensaver {
     use std::ffi::c_void;
@@ -337,6 +339,21 @@ mod screensaver {
         run()
     }
 
+    pub fn show_error(error: &io::Error) {
+        let message: Vec<u16> = format!("Blanker failed: {error}\0")
+            .encode_utf16()
+            .collect();
+        let title: Vec<u16> = "Blanker\0".encode_utf16().collect();
+        unsafe {
+            MessageBoxW(ptr::null_mut(), message.as_ptr(), title.as_ptr(), 0x10);
+        }
+    }
+
+    #[link(name = "user32")]
+    unsafe extern "system" {
+        fn MessageBoxW(hwnd: Hwnd, text: *const u16, caption: *const u16, kind: Uint) -> i32;
+    }
+
     #[cfg(test)]
     mod tests {
         use super::*;
@@ -379,7 +396,7 @@ fn main() -> std::process::ExitCode {
     match screensaver::start() {
         Ok(()) => std::process::ExitCode::SUCCESS,
         Err(error) => {
-            eprintln!("Blanker failed: {error}");
+            screensaver::show_error(&error);
             std::process::ExitCode::FAILURE
         }
     }
